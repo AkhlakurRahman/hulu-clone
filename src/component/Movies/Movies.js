@@ -21,8 +21,6 @@ const Movies = ({ selectedOption }) => {
     fetchData();
   }, [selectedOption]);
 
-  console.log(movies);
-
   return (
     <div className='movies'>
       <FlipMove>
