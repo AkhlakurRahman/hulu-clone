@@ -1,4 +1,4 @@
-.movies {
+.movies > div {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
