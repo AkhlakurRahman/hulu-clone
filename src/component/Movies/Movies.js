@@ -5,13 +5,13 @@ import axios from 'axios';
 import request from '../../request';
 import './Movies.css';
 
-const Movies = () => {
+const Movies = ({ selectedOption }) => {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
       const res = await axios.get(
-        `https://api.themoviedb.org/3${request.fetchActionMovies}`
+        `https://api.themoviedb.org/3${selectedOption}`
       );
       setMovies(res.data.results);
 
@@ -19,12 +19,14 @@ const Movies = () => {
     }
 
     fetchData();
-  }, []);
+  }, [selectedOption]);
+
+  console.log(movies);
 
   return (
     <div className='movies'>
       {movies.map((movie) => (
-        <VideoCard movie={movie} />
+        <VideoCard key={movie.id} movie={movie} />
       ))}
     </div>
   );

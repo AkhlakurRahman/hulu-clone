@@ -2,12 +2,18 @@
   color: #fff;
   width: 500px;
   height: 400px;
-  padding: 20px;
+  margin: 20px;
   transition: transform 100ms ease-out;
 }
 
 .videoCard:hover {
   transform: scale(1.09);
+}
+
+.videoCard:hover .videoCard__stats {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .videoCard > img {
@@ -18,4 +24,14 @@
 
 .videoCard > h2 {
   padding-top: 10px;
+}
+
+.videoCard__stats {
+  display: none;
+  transition: all 100ms ease-in-out;
+}
+
+.videoCard__stats span {
+  display: flex;
+  align-items: center;
 }

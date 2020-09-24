@@ -1,4 +1,6 @@
 import React from 'react';
+import TextTruncate from 'react-text-truncate';
+import { ThumbUpSharp } from '@material-ui/icons';
 
 import './VideoCard.css';
 
@@ -10,9 +12,20 @@ const VideoCard = ({ movie }) => {
         src={`${base_img_url}${movie.backdrop_path || movie.poster_path}`}
         alt={movie.title || movie.original_name}
       />
-      <p>{movie.overview}</p>
+      <TextTruncate
+        line={1}
+        element='p'
+        truncateText='...'
+        text={movie.overview}
+      />
       <h2>{movie.title || movie.original_name}</h2>
-      <p>Number of likes: {movie.vote_count}</p>
+      <p className='videoCard__stats'>
+        {movie.media_type && `${movie.media_type}`}
+        {movie.release_date || movie.first_air_date}
+        <span>
+          <ThumbUpSharp /> {movie.vote_count}
+        </span>
+      </p>
     </div>
   );
 };
